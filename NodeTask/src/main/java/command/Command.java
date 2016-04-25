@@ -1,7 +1,9 @@
 package command;
 
 
+import bean.Request;
+import bean.Response;
 
 public interface Command {
-    public void execute();
+    public Response execute(Request request);
 }

@@ -1,5 +1,7 @@
 package command;
 
+import bean.Request;
+import bean.Response;
 import model.Note;
 
 /**
@@ -11,8 +13,9 @@ public class AddNoteCommand implements Command {
         this.note = note;
     }
 
-    public void execute() {
-        //todo
-    }
 
+
+    public Response execute(Request request) {
+        return null;
+    }
 }

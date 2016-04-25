@@ -1,14 +1,17 @@
 package command;
 
+import bean.Request;
+import bean.Response;
 import model.NoteBookProvider;
 
 /**
- * Срздать блокнотdqwd
+ * Срздать блокнот
  */
 public class CreateNoteBookCommand implements Command {
 
-    public void execute() {
-        // Create noteBook
-        NoteBookProvider.getInstance();
+
+    public Response execute(Request request) {
+
+        return null;
     }
 }
