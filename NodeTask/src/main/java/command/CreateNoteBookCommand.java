@@ -5,7 +5,7 @@ import bean.Response;
 import model.NoteBookProvider;
 
 /**
- * Срздать блокнот
+ * Создать блокнот
  */
 public class CreateNoteBookCommand implements Command {
     Response response;
@@ -14,7 +14,7 @@ public class CreateNoteBookCommand implements Command {
     public Response execute(Request request) {
         response = new Response();
         NoteBookProvider.getInstance();
-        response.setMassage(response.getMassage() + " " + request.getCommandName());
+        response.setStatusMassage(request.getCommandName(), true);
         return response;
     }
 }

@@ -1,8 +1,6 @@
 package command;
 
-/**
- * Created by maksim_kevich on 4/26/16.
- */
+
 public class CommandFactory {
 
     public static Command getCommand(String commandName){
@@ -14,6 +12,8 @@ public class CommandFactory {
                 return new AddNoteCommand();
             case "FindNoteOnDateCommand":
                 return new FindNoteOnDateCommand();
+            case "FindNoteOnContentCommand":
+                return new FindNoteOnContentCommand();
             case "LoadNoteBookOnFile":
                 return new LoadNoteBookOnFile();
             case "ShowNoteInNoteBookCommand":

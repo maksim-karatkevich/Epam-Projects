@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteBook {
-    List<Note> notes;
+    private List<Note> notes;
 
     public NoteBook() {
         this.notes = new ArrayList<Note>();
@@ -13,6 +13,10 @@ public class NoteBook {
 
     public void add(Note note){
         notes.add(note);
+    }
+
+    public List<Note> getNotes() {
+        return notes;
     }
 
     @Override

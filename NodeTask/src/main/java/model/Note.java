@@ -6,16 +6,11 @@ import java.util.Date;
 public class Note {
 
     private String text;
-
     private Date data;
 
     public Note(String text) {
         this.text = text;
         data = new Date();
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public String getText() {
@@ -35,21 +30,34 @@ public class Note {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
 
-        Note note = (Note) o;
+        Note note = (Note) obj;
+        if (null == text) {
+            return (text == note.text);
+        } else {
+            if (!text.equals(note.text)) {
+                return false;
+            }
+        }
+        if (null == data) {
+            return (data == note.data);
+        } else {
+            if (!data.equals(note.data)) {
+                return false;
+            }
 
-        if (text != null ? !text.equals(note.text) : note.text != null) return false;
-        return data != null ? data.equals(note.data) : note.data == null;
-
+        }
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result = text != null ? text.hashCode() : 0;
-        result = 31 * result + (data != null ? data.hashCode() : 0);
+            result = 31 * result + (data != null ? data.hashCode() : 0);
         return result;
     }
 }
+
