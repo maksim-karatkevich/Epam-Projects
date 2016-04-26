@@ -12,12 +12,7 @@ public class AddNoteCommand implements Command {
     Response response;
     private Note note;
 
-//    public AddNoteCommand(String arg) {
-//        this.note = new Note(arg);
-//    }
-
     public Response execute(Request request) {
-        //        NoteBookProvider.getInstance().add(new Note("Some note"));
         response = new Response();
         note = new Note(request.getArg());
         NoteBookProvider.getInstance().add(note);

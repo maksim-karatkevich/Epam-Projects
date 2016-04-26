@@ -1,10 +1,11 @@
 package model;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteBook {
+public class NoteBook implements Serializable{
     private List<Note> notes;
 
     public NoteBook() {

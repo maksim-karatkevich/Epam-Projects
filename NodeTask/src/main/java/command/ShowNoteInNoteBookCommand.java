@@ -13,9 +13,6 @@ public class ShowNoteInNoteBookCommand implements Command {
     Response response;
     public Response execute(Request request) {
         response = new Response();
-//        NoteBookConsoleView.print(NoteBookProvider.getInstance());
-//        response.setStatusMassage(request.getCommandName(), true);
-//        return response;
         String notes = "";
         for (Note note : NoteBookProvider.getInstance().getNotes()){
             notes += note.getText() + " ";

@@ -12,6 +12,7 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
+
         Controller controller = new Controller();
         // create note book
         Request request = new Request();
@@ -21,21 +22,21 @@ public class Main {
 
         // add note
         Request request1 = new Request();
-        request1.setArg("Firs note");
+        request1.setArg("Hello this is my first Note");
         request1.setCommandName("AddNoteCommand");
         Response response1 = controller.doAction(request1);
         System.out.println(response1.getStatusMassage());
 
         // add note 2
         Request request2 = new Request();
-        request2.setArg("Second note");
+        request2.setArg("Hello again now i wrote second note");
         request2.setCommandName("AddNoteCommand");
         Response response2 = controller.doAction(request2);
         System.out.println(response2.getStatusMassage());
 
         // Найти записи в блокноте по содержимому
         Request request3 = new Request();
-        request3.setArg("text to");
+        request3.setArg("Hello again now i wrote second note");
         request3.setCommandName("FindNoteOnContentCommand");
         Response response3 = controller.doAction(request3);
         System.out.println(response3.getStatusMassage());
@@ -53,6 +54,19 @@ public class Main {
         Response response5 = controller.doAction(request5);
         System.out.println(response5.getStatusMassage());
 
+        // запись в файл
+        Request request6 = new Request();
+        request6.setArg("/Users/maksim_kevich/Desktop/ideaProjects/NodeTask/src/main/resources/tmp.ser");
+        request6.setCommandName("WriteNoteBookInFileCommand");
+        Response response6 = controller.doAction(request6);
+        System.out.println(response6.getStatusMassage());
+
+        // чтение из файла
+        Request request7 = new Request();
+        request7.setArg("/Users/maksim_kevich/Desktop/ideaProjects/NodeTask/src/main/resources/tmp.ser");
+        request7.setCommandName("LoadNoteBookOnFile");
+        Response response7 = controller.doAction(request7);
+        System.out.println(response7.getStatusMassage());
 
     }
 }

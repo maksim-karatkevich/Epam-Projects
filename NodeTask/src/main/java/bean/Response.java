@@ -11,25 +11,10 @@ public class Response {
     }
 
     public void setStatusMassage(String statusMassage, boolean failOrNot) {
-        if (failOrNot){
-        this.statusMassage = statusMassage + " " + massage;
+        if (failOrNot) {
+            this.statusMassage = statusMassage + " " + massage;
         } else this.statusMassage = statusMassage + " " + errorMassage;
 
     }
 
-    public String getMassage() {
-        return massage;
-    }
-
-    public void setMassage(String massage) {
-        this.massage = massage;
-    }
-
-    public String getErrorMassage() {
-        return errorMassage;
-    }
-
-    public void setErrorMassage(String errorMassage) {
-        this.errorMassage = errorMassage;
-    }
 }
