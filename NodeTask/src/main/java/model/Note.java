@@ -4,7 +4,19 @@ package model;
 import java.util.Date;
 
 public class Note {
+
     private String text;
+
+    private Date data;
+
+    public Note(String text) {
+        this.text = text;
+        data = new Date();
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public String getText() {
         return text;
@@ -12,13 +24,6 @@ public class Note {
 
     public Date getData() {
         return data;
-    }
-
-    private Date data;
-
-    public Note(String text) {
-        this.text = text;
-        data = new Date();
     }
 
     @Override

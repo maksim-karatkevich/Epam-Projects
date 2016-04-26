@@ -2,16 +2,29 @@ package bean;
 
 
 public class Request {
-    private String commandName;
-    private String login;
-    private String password;
-    private String title;
 
-    public Request(String login, String password, String title) {
-        super();
-        this.login = login;
-        this.password = password;
-        this.title = title;
+    private String arg;
+    private String commandName;
+
+    public String getArg() {
+        return arg;
+    }
+
+    public void setArg(String arg) {
+        this.arg = arg;
+    }
+
+
+
+    public Request() {
+    }
+
+    public void setCommandName(String commandName) {
+        this.commandName = commandName;
+    }
+
+    public String getCommandName() {
+        return commandName;
     }
 
 }
