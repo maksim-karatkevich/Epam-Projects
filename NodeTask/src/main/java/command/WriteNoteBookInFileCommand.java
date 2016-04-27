@@ -3,7 +3,6 @@ package command;
 import bean.Request;
 import bean.Response;
 import model.NoteBookProvider;
-
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -18,9 +17,9 @@ public class WriteNoteBookInFileCommand implements Command {
         try (FileOutputStream fileOut = new FileOutputStream(request.getArg());
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(NoteBookProvider.getInstance());
-            response.setStatusMassage(request.getCommandName(), true);
+            response.setStatusMessage(request.getCommandName(), true);
         } catch (Exception ex) {
-            response.setStatusMassage(request.getCommandName(), false);
+            response.setStatusMessage(request.getCommandName(), false);
         }
         return response;
     }

@@ -3,7 +3,6 @@ package command;
 import bean.Request;
 import bean.Response;
 import model.Note;
-import model.NoteBookConsoleView;
 import model.NoteBookProvider;
 
 /**
@@ -18,8 +17,8 @@ public class ShowNoteInNoteBookCommand implements Command {
             notes += note.getText() + " ";
         }
         if (!notes.equals("")){
-            response.setStatusMassage(request.getCommandName() + " " + notes, true);
-        } else response.setStatusMassage(request.getCommandName(), false);
+            response.setStatusMessage(request.getCommandName() + " " + notes, true);
+        } else response.setStatusMessage(request.getCommandName(), false);
         return response;
     }
 }

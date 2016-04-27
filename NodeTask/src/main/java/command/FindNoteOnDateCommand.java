@@ -29,15 +29,15 @@ public class FindNoteOnDateCommand implements Command {
             }
 
             if (!t.equals("")) {
-                response.setStatusMassage(request.getCommandName() + t, true);
+                response.setStatusMessage(request.getCommandName() + t, true);
             } else {
-                response.setStatusMassage(request.getCommandName(), false);
+                response.setStatusMessage(request.getCommandName(), false);
             }
             return response;
         } catch (Exception ex){
             ex.printStackTrace();
         }
-        response.setStatusMassage(request.getCommandName(), false);
+        response.setStatusMessage(request.getCommandName(), false);
         return response;
     }
 }

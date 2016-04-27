@@ -2,18 +2,18 @@ package bean;
 
 
 public class Response {
-    private String massage = "completed successfully ";
-    private String errorMassage = "fail ";
-    private String statusMassage;
+    private String message = "completed successfully ";
+    private String errorMessage = "fail ";
+    private String statusMessage;
 
-    public String getStatusMassage() {
-        return statusMassage;
+    public String getStatusMessage() {
+        return statusMessage;
     }
 
-    public void setStatusMassage(String statusMassage, boolean failOrNot) {
+    public void setStatusMessage(String statusMessage, boolean failOrNot) {
         if (failOrNot) {
-            this.statusMassage = statusMassage + " " + massage;
-        } else this.statusMassage = statusMassage + " " + errorMassage;
+            this.statusMessage = statusMessage + " " + message;
+        } else this.statusMessage = statusMessage + " " + errorMessage;
 
     }
 

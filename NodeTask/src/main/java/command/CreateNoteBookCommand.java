@@ -14,7 +14,7 @@ public class CreateNoteBookCommand implements Command {
     public Response execute(Request request) {
         response = new Response();
         NoteBookProvider.getInstance();
-        response.setStatusMassage(request.getCommandName(), true);
+        response.setStatusMessage(request.getCommandName(), true);
         return response;
     }
 }
