@@ -2,28 +2,25 @@ package test.test.commands;
 import bean.Request;
 import bean.Response;
 import controller.Controller;
-import model.Note;
 import model.NoteBookProvider;
-import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import java.text.ParseException;
+
+
+import static org.testng.Assert.fail;
 
 public class AddNoteCommandTest {
     Controller controller;
     Request request;
     Response response;
-
+    int counter = 0;
     @DataProvider(name = "Notes")
     public Object[][] getNotes(){
         return new Object[][]{
-                {new Note("Firs Note")},
-                {new Note("Second Note")},
-                {new Note("Third Note")},
-                {new Note("Fourth Note")}
+                {"Firs Note"},
+                {"Second Note"},
+                {"Third Note"},
+                {"Fourth Note"}
         };
     }
 
@@ -31,21 +28,20 @@ public class AddNoteCommandTest {
     public void setUp(){
         controller = new Controller();
         request = new Request();
-        request.setCommandName("AddNoteCommand");
-        request.setArg("Node for test");
     }
 
+
+
+
     @Test(dataProvider = "Notes")
-    public void addCommandTest(Note note) throws ParseException {
-//        request.setArg("Hello this is my first Note");
-//        request.setCommandName("AddNoteCommand");
-//        response = controller.doAction(request);
-//        request.setArg("Second Note");
-//        request.setCommandName("AddNoteCommand");
-//        response = controller.doAction(request);
-        for (Note note1 : NoteBookProvider.getInstance().getNotes()){
-            System.out.println(note.getText());
+    public void addCommandTest(String noteText) throws ParseException {
+        request.setArg(noteText);
+        request.setCommandName("AddNoteCommand");
+        controller.doAction(request);
+        if (!NoteBookProvider.getInstance().getNotes().get(counter).getText().equals(noteText)){
+            fail();
         }
+        counter++;
     }
 
     @AfterSuite

@@ -21,7 +21,7 @@ public class CommandFactory {
             case "WriteNoteBookInFileCommand":
                 return new WriteNoteBookInFileCommand();
             default:
-                throw new IllegalArgumentException(commandName + "command not exists");
+                throw new IllegalArgumentException(commandName + " command not exists");
         }
 
     }
