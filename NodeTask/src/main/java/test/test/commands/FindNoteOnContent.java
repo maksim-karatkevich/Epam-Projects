@@ -62,7 +62,7 @@ public class FindNoteOnContent {
     }
 
     @AfterSuite
-    public void shutDown() {
+    public void close() {
         controller = null;
         request = null;
         response = null;

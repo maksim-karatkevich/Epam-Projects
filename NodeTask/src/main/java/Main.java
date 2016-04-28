@@ -64,17 +64,15 @@ public class Main {
         Response response7 = controller.doAction(request7);
         System.out.println(response7.getStatusMessage());
 
+        //        // Найти записи в блокноте по дате создания
+        Request request4 = new Request();
+        request4.setArg("2016-04-27");
+        request4.setCommandName("FindNoteOnDateCommand");
+        Response response4 = controller.doAction(request4);
+        System.out.println(response4.getStatusMessage());
 
-         Request request1 = new Request();
-        request1.setArg("Hello this is my first Note");
-        request1.setCommandName("AddNoteCommand");
-        Response response1 = controller.doAction(request1);
-        request1.setArg("Second Note");
-        request1.setCommandName("AddNoteCommand");
-        response1 = controller.doAction(request1);
 
-        for (Note n :NoteBookProvider.getInstance().getNotes()){
-            System.out.println(n.getText());
-        }
+
+
     }
 }
