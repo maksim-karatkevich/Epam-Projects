@@ -1,18 +1,18 @@
 package dao;
 
 
-import dao.impl.FileWorkerDAOImpl;
+import dao.impl.FileDAOImpl;
 
 public class DAOFactory {
     private static final DAOFactory factory = new DAOFactory();
 
-    private final FileWorkerDAOImpl fileWorkerDAOImpl = new FileWorkerDAOImpl();
+    private final FileDAOImpl fileDAOImpl = new FileDAOImpl();
 
     private DAOFactory(){}
 
     public static DAOFactory getInstance() { return factory; }
 
-    public FileWorkerDAOImpl getFileWorkerDAOImpl(){
-        return fileWorkerDAOImpl;
+    public FileDAOImpl getFileDAOImpl(){
+        return fileDAOImpl;
     }
 }

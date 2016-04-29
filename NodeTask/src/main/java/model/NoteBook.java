@@ -5,14 +5,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteBook implements Serializable{
+public class NoteBook implements Serializable {
     private List<Note> notes;
 
     public NoteBook() {
         this.notes = new ArrayList<Note>();
     }
 
-    public void add(Note note){
+    public void add(Note note) {
         notes.add(note);
     }
 
@@ -29,8 +29,12 @@ public class NoteBook implements Serializable{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o){ return true; }
-        if (o == null || getClass() != o.getClass()){ return false; }
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         NoteBook noteBook = (NoteBook) o;
 

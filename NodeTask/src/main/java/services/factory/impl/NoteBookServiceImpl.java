@@ -2,7 +2,7 @@ package services.factory.impl;
 
 
 import dao.DAOFactory;
-import dao.impl.FileWorkerDAOImpl;
+import dao.impl.FileDAOImpl;
 import model.Note;
 import model.NoteBook;
 import model.NoteBookProvider;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class NoteBookServiceImpl implements NoteBookService{
 
-    public NoteBookServiceImpl(){}
+    public NoteBookServiceImpl(){ }
 
     @Override
     public void createNoteBook() {
@@ -58,8 +58,8 @@ public class NoteBookServiceImpl implements NoteBookService{
     @Override
     public NoteBook loadNoteBook(String path) throws IOException, ClassNotFoundException {
         NoteBook noteBook = null;
-        FileWorkerDAOImpl fileWorkerDAOImpl = DAOFactory.getInstance().getFileWorkerDAOImpl();
-        noteBook = fileWorkerDAOImpl.loadNoteBookFromDirectory(path, noteBook);
+        FileDAOImpl fileDAOImpl = DAOFactory.getInstance().getFileDAOImpl();
+        noteBook = fileDAOImpl.load(path, noteBook);
         return noteBook;
     }
 
@@ -74,8 +74,8 @@ public class NoteBookServiceImpl implements NoteBookService{
 
     @Override
     public void writeNoteBookOnFile(String path) {
-        FileWorkerDAOImpl fileWorkerDAOImpl = DAOFactory.getInstance().getFileWorkerDAOImpl();
-        fileWorkerDAOImpl.saveNoteBookInDirectory(path);
+        FileDAOImpl fileDAOImpl = DAOFactory.getInstance().getFileDAOImpl();
+        fileDAOImpl.save(path);
     }
 
 }

@@ -4,7 +4,7 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Note implements Serializable{
+public class Note implements Serializable {
 
     private String text;
     private Date data;
@@ -32,8 +32,12 @@ public class Note implements Serializable{
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
 
         Note note = (Note) obj;
         if (null == text) {
@@ -57,7 +61,7 @@ public class Note implements Serializable{
     @Override
     public int hashCode() {
         int result = text != null ? text.hashCode() : 0;
-            result = 31 * result + (data != null ? data.hashCode() : 0);
+        result = 31 * result + (data != null ? data.hashCode() : 0);
         return result;
     }
 }

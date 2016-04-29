@@ -19,7 +19,7 @@ public class Request {
     public Request() {
     }
 
-    public Request(String commandName,String arg){
+    public Request(String commandName, String arg){
         this.commandName = commandName;
         this.arg = arg;
     }
