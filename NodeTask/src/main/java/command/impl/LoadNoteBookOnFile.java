@@ -3,9 +3,8 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
-import model.NoteBook;
 import model.NoteBookProvider;
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
 
 import java.io.IOException;
@@ -15,7 +14,7 @@ import java.io.IOException;
  */
 public class LoadNoteBookOnFile implements Command {
     private Response response;
-    private NoteBookService service;
+    private NoteBookServiceImpl service;
 
     public Response execute(Request request) throws IOException, ClassNotFoundException {
         response = new Response();

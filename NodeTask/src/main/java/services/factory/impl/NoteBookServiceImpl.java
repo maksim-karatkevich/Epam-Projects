@@ -1,11 +1,12 @@
-package services;
+package services.factory.impl;
 
 
 import dao.DAOFactory;
-import dao.impl.FileWorkerDAO;
+import dao.impl.FileWorkerDAOImpl;
 import model.Note;
 import model.NoteBook;
 import model.NoteBookProvider;
+import services.factory.NoteBookService;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -15,22 +16,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class NoteBookService {
+public class NoteBookServiceImpl implements NoteBookService{
 
-    private NoteBook noteBook;
+    public NoteBookServiceImpl(){}
 
-    public NoteBookService(){}
-
-    public NoteBook createNoteBook() {
-        noteBook = NoteBookProvider.getInstance().getNoteBook();
-        return noteBook;
+    @Override
+    public void createNoteBook() {
+        NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
     }
 
-    public void addNote(Note note) {
+    @Override
+    public void addNote(String noteText) {
+        Note note = new Note(noteText);
         NoteBookProvider.getInstance().getNoteBook().add(note);
     }
 
-    public Note findNoteOnContent(String text) throws Exception {
+    @Override
+    public Note findNoteOnContent(String text) {
         for (Note note : NoteBookProvider.getInstance().getNoteBook().getNotes()) {
             if (note.getText().equals(text)) {
                 return note;
@@ -39,6 +41,7 @@ public class NoteBookService {
         return null;
     }
 
+    @Override
     public List<Note> findNoteOnDate(String date) throws ParseException {
         List<Note> list = new ArrayList<>();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -52,13 +55,15 @@ public class NoteBookService {
         return list;
     }
 
+    @Override
     public NoteBook loadNoteBook(String path) throws IOException, ClassNotFoundException {
         NoteBook noteBook = null;
-        FileWorkerDAO fileWorkerDAO = DAOFactory.getInstance().getFileWorkerDAO();
-        noteBook = fileWorkerDAO.loadNoteBookFromDirectory(path, noteBook);
+        FileWorkerDAOImpl fileWorkerDAOImpl = DAOFactory.getInstance().getFileWorkerDAOImpl();
+        noteBook = fileWorkerDAOImpl.loadNoteBookFromDirectory(path, noteBook);
         return noteBook;
     }
 
+    @Override
     public List<Note> showNotes() {
         List<Note> list = new ArrayList<>();
         for (Note note : NoteBookProvider.getInstance().getNoteBook().getNotes()){
@@ -67,9 +72,10 @@ public class NoteBookService {
         return list;
     }
 
+    @Override
     public void writeNoteBookOnFile(String path) {
-        FileWorkerDAO fileWorkerDAO = DAOFactory.getInstance().getFileWorkerDAO();
-        fileWorkerDAO.saveNoteBookInDirectory(path);
+        FileWorkerDAOImpl fileWorkerDAOImpl = DAOFactory.getInstance().getFileWorkerDAOImpl();
+        fileWorkerDAOImpl.saveNoteBookInDirectory(path);
     }
 
 }

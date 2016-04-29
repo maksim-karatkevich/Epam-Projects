@@ -4,7 +4,7 @@ import bean.Request;
 import bean.Response;
 import command.Command;
 import model.NoteBookProvider;
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
 
 /**
@@ -12,7 +12,7 @@ import services.factory.ServiceFactory;
  */
 public class CreateNoteBookCommand implements Command {
     private Response response;
-    private NoteBookService noteBookService;
+    private NoteBookServiceImpl noteBookService;
 
 
     public Response execute(Request request) {

@@ -3,19 +3,15 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
-import model.NoteBookProvider;
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
-
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 
 /**
  * Записать Блокнот в файл
  */
 public class WriteNoteBookInFileCommand implements Command {
     private Response response;
-    private NoteBookService service;
+    private NoteBookServiceImpl service;
 
     public Response execute(Request request) {
         response = new Response();

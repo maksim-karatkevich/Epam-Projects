@@ -1,12 +1,12 @@
 package services.factory;
 
 
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 
 public class ServiceFactory {
     private static ServiceFactory factory = new ServiceFactory();
 
-    private final NoteBookService noteBookService = new NoteBookService();
+    private final NoteBookServiceImpl noteBookService = new NoteBookServiceImpl();
 
     private ServiceFactory(){}
 
@@ -14,6 +14,6 @@ public class ServiceFactory {
         return factory;
     }
 
-    public NoteBookService getNoteBookService() { return noteBookService; }
+    public NoteBookServiceImpl getNoteBookService() { return noteBookService; }
 
 }

@@ -4,7 +4,7 @@ import bean.Request;
 import bean.Response;
 
 import command.Command;
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
 
 /**
@@ -13,7 +13,7 @@ import services.factory.ServiceFactory;
 
 public class FindNoteOnContentCommand implements Command {
     private Response response;
-    private NoteBookService service;
+    private NoteBookServiceImpl service;
 
     public Response execute(Request request) throws Exception {
         response = new Response();

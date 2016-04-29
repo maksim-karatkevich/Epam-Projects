@@ -1,12 +1,13 @@
 package dao.impl;
 
 
+import dao.FileWorkerDAO;
 import model.NoteBook;
 import model.NoteBookProvider;
 
 import java.io.*;
 
-public class FileWorkerDAO {
+public class FileWorkerDAOImpl implements FileWorkerDAO {
 
     public void saveNoteBookInDirectory(String path) {
         try (FileOutputStream fileOut = new FileOutputStream(path);

@@ -4,7 +4,7 @@ import bean.Request;
 import bean.Response;
 import command.Command;
 import model.Note;
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
 
 import java.text.ParseException;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class FindNoteOnDateCommand implements Command {
     private Response response;
-    private NoteBookService service;
+    private NoteBookServiceImpl service;
 
     public Response execute(Request request) throws ParseException {
         response = new Response();

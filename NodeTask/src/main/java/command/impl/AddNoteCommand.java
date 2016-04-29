@@ -3,8 +3,7 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
-import model.Note;
-import services.NoteBookService;
+import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
 
 /**
@@ -12,14 +11,13 @@ import services.factory.ServiceFactory;
  */
 public class AddNoteCommand implements Command {
     private Response response;
-    private NoteBookService service;
-    private Note note;
+    private NoteBookServiceImpl service;
 
     public Response execute(Request request) {
         service = ServiceFactory.getInstance().getNoteBookService();
         response = new Response();
-        note = new Note(request.getArg());
-        service.addNote(note);
+        String noteText = request.getArg();
+        service.addNote(noteText);
         response.setStatusMessage(request.getCommandName(), true);
         return response;
     }
