@@ -5,11 +5,8 @@ package task1;
  */
 public class Runner {
     public static void main(String[] args) throws Exception {
-        try {
-            Task1 t = new Task1(args[0]);
-        } catch (Exception ex){
-            System.out.println(ex);
-        }
-
+        String number = "12.12";
+        number = Task1.replaceDot(number);
+        System.out.println(Task1.sum(number));
     }
 }

@@ -1,13 +1,18 @@
-package model;
+package view;
+
+import model.Note;
+import model.NoteBook;
 
 import java.util.List;
 
 
 public class NoteBookConsoleView {
+
     // вывод данных об одной записи
     public static void print(Note note) {
         System.out.println(note.toString());
     }
+
     // вывод данный о всех записях
     public static void print(NoteBook noteBook) {
         for (Note n : noteBook.getNotes()) {

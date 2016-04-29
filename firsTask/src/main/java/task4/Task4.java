@@ -8,7 +8,7 @@ package task4;
 
 public class Task4 {
 
-    public boolean getResult(int x, int y) {
+    public static boolean getResult(int x, int y) {
         if (x > -3 && x < 3 && y < 5 && y > -1) {
             return true;
         } else if (x > -5 && x < 5 && y < -1 && y > -4){

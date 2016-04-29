@@ -1,21 +1,25 @@
-package command;
+package command.impl;
 
 import bean.Request;
 import bean.Response;
+import command.Command;
 import model.Note;
-import model.NoteBookProvider;
+import services.NoteBookService;
+import services.factory.ServiceFactory;
 
 /**
  * Добавить запись в Блокнот
  */
 public class AddNoteCommand implements Command {
-    Response response;
+    private Response response;
+    private NoteBookService service;
     private Note note;
 
     public Response execute(Request request) {
+        service = ServiceFactory.getInstance().getNoteBookService();
         response = new Response();
         note = new Note(request.getArg());
-        NoteBookProvider.getInstance().add(note);
+        service.addNote(note);
         response.setStatusMessage(request.getCommandName(), true);
         return response;
     }

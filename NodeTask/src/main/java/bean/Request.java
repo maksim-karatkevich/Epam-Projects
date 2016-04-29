@@ -24,6 +24,10 @@ public class Request {
         this.arg = arg;
     }
 
+    public Request(String commandName){
+        this.commandName = commandName;
+    }
+
     public void setCommandName(String commandName) {
         this.commandName = commandName;
     }

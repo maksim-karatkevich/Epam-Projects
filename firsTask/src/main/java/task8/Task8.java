@@ -6,7 +6,7 @@ package task8;
  */
 public class Task8 {
 
-    public int sum(int[] a, int k){
+    public static int sum(int[] a, int k){
         int sum = 0;
         for (int i = 0; i < a.length; i++) {
             if(a[i] % k == 0){

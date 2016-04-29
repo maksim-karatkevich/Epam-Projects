@@ -5,19 +5,13 @@ package task2;
  */
 
 public class Task2 {
-    double a, b, c;
 
-    public Task2(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+
+    public static double getDiscriminant(double a, double b, double c) {
+        return Math.pow(b, 2) + 4 * a * c;
     }
 
-    public double getDiscriminant() {
-        return Math.pow(b,2) + 4 * a * c;
-    }
-
-    public double getResult() {
-        return (b + Math.sqrt(getDiscriminant())) / (2 * a) - Math.pow(a, 3) * c + Math.pow(b,-2);
+    public static double getResult(double a, double b, double c) {
+        return (b + Math.sqrt(getDiscriminant(a, b, c))) / (2 * a) - Math.pow(a, 3) * c + Math.pow(b, -2);
     }
 }

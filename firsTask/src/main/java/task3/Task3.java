@@ -5,18 +5,12 @@ package task3;
  */
 
 public class Task3 {
-    double a, b;
 
-    public Task3(double a, double b) throws Exception {
-        this.a = a;
-        this.b = b;
-    }
-
-    public double getPerimeter() {
+    public static double getPerimeter(double a, double b) {
         return (a + b) + (Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)));
     }
 
-    public double getArea() {
+    public static double getArea(double a, double b) {
         return a * (b / 2);
     }
 
