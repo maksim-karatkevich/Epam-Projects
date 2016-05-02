@@ -3,7 +3,6 @@ package test.commandTest;
 
 import bean.Request;
 import controller.Controller;
-import model.Note;
 import model.NoteBookProvider;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -11,12 +10,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-public class AddNoteTest {
-
+public class FindNoteOnContentTest {
     Controller controller;
     Request request;
+    int counter = 0;
+
     @BeforeMethod
     public void setUp() throws Exception {
         controller = new Controller();
@@ -39,19 +37,12 @@ public class AddNoteTest {
         };
     }
 
-
     @Test(dataProvider = "notes")
-    public void addNoteTest(String note) throws Exception {
+    public void findNoteTest(String note) throws Exception {
         request.setCommandName("ADD_NOTE_COMMAND");
         request.setArg(note);
         controller.doAction(request);
-        List<Note> list =  NoteBookProvider.getInstance().getNoteBook().getNotes();
-        boolean containsOrNot = false;
-        for (Note note1 : list){
-            if (note1.getText().equals(note)){
-                containsOrNot = true;
-            }
-        }
-        Assert.assertTrue(containsOrNot);
+        Assert.assertTrue(NoteBookProvider.getInstance().getNoteBook().getNotes().get(counter).getText().equals(note));
+        counter++;
     }
 }

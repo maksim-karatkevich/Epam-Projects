@@ -3,31 +3,30 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
-import model.NoteBookProvider;
 import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * Загрузить Блокнот из файла
+ * Записать Блокнот в файл
  */
-public class LoadNoteBookOnFile implements Command {
+public class SaveNoteBookInFileCommand implements Command {
     private Response response;
     private NoteBookServiceImpl service;
 
-    public Response execute(Request request) throws IOException, ClassNotFoundException {
+    public Response execute(Request request) throws IOException {
         response = new Response();
         service = ServiceFactory.getInstance().getNoteBookService();
         String path = request.getArg();
         try {
-            NoteBookProvider.getInstance().setInstance(service.loadNoteBook(path));
+            service.saveNoteBookOnFile(path);
             response.setStatusMessage(request.getCommandName(), true);
-        } catch (FileNotFoundException ex){
-            response.setStatusMessage(request.getCommandName(), false);
+        } catch (Exception ex) {
+            service.saveNoteBookOnFile(path);
             ex.printStackTrace();
         }
+
         return response;
     }
 }

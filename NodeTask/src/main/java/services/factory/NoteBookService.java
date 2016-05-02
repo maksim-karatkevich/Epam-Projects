@@ -22,6 +22,6 @@ public interface NoteBookService {
 
     List<Note> showNotes();
 
-    void writeNoteBookOnFile(String path);
+    void saveNoteBookOnFile(String path) throws IOException;
 
 }

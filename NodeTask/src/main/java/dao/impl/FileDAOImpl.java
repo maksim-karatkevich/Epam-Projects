@@ -9,13 +9,11 @@ import java.io.*;
 
 public class FileDAOImpl implements FileDAO {
 
-    public void save(String path) {
-        try (FileOutputStream fileOut = new FileOutputStream(path);
-             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-            out.writeObject(NoteBookProvider.getInstance().getNoteBook());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    public void save(String path) throws IOException {
+        FileOutputStream fileOut = new FileOutputStream(path);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(NoteBookProvider.getInstance().getNoteBook());
+
     }
 
     public NoteBook load(String path, NoteBook noteBook) throws IOException, ClassNotFoundException {

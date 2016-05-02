@@ -3,8 +3,12 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
+import model.Note;
 import services.factory.impl.NoteBookServiceImpl;
 import services.factory.ServiceFactory;
+import view.NoteBookConsoleView;
+
+import java.util.List;
 
 /**
  * Показать записи в блокноте
@@ -16,7 +20,8 @@ public class ShowNoteInNoteBookCommand implements Command {
     public Response execute(Request request) {
         response = new Response();
         service = ServiceFactory.getInstance().getNoteBookService();
-        service.showNotes();
+        List<Note> noteList = service.showNotes();
+        NoteBookConsoleView.print(noteList);
         response.setStatusMessage(request.getCommandName(), true);
         return response;
     }

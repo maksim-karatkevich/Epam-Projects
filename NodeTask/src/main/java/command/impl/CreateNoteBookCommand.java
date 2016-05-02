@@ -22,7 +22,7 @@ public class CreateNoteBookCommand implements Command {
             noteBookService.createNoteBook();
             response.setStatusMessage(request.getCommandName(), true);
         } else {
-            response.setStatusMessage("noteBool already" + request.getCommandName(), false);
+            response.setStatusMessage("noteBook already. " + request.getCommandName(), false);
         }
         return response;
     }

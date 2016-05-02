@@ -73,7 +73,7 @@ public class NoteBookServiceImpl implements NoteBookService{
     }
 
     @Override
-    public void writeNoteBookOnFile(String path) {
+    public void saveNoteBookOnFile(String path) throws IOException {
         FileDAOImpl fileDAOImpl = DAOFactory.getInstance().getFileDAOImpl();
         fileDAOImpl.save(path);
     }

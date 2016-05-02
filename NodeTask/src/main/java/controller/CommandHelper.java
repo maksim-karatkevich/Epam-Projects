@@ -16,8 +16,8 @@ public class CommandHelper {
         commands.put(CommandName.FIND_NOTE_ON_CONTENT_COMMAND, new FindNoteOnContentCommand());
         commands.put(CommandName.FIND_NOTE_ON_DATE_COMMAND, new FindNoteOnDateCommand());
         commands.put(CommandName.SHOW_NOTE_IN_NOTE_BOOK_COMMAND, new ShowNoteInNoteBookCommand());
-        commands.put(CommandName.WRITE_NOTE_BOOK_IN_FILE_COMMAND, new WriteNoteBookInFileCommand());
-        commands.put(CommandName.LOAD_NOTE_BOOK_ON_FILE, new LoadNoteBookOnFile());
+        commands.put(CommandName.SAVE_NOTE_BOOK_IN_FILE_COMMAND, new SaveNoteBookInFileCommand());
+        commands.put(CommandName.LOAD_NOTE_BOOK_ON_FILE_COMMAND, new LoadNoteBookOnFile());
     }
 
     public Command getCommand(String commandName) {

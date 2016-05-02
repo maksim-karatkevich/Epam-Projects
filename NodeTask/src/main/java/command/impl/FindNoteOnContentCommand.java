@@ -18,7 +18,8 @@ public class FindNoteOnContentCommand implements Command {
     public Response execute(Request request) throws Exception {
         response = new Response();
         service = ServiceFactory.getInstance().getNoteBookService();
-        if (service.findNoteOnContent(request.getArg()) != null){
+        String searchContent = request.getArg();
+        if (service.findNoteOnContent(searchContent) != null){
             response.setStatusMessage(request.getCommandName(), true);
         } else {
             response.setStatusMessage(request.getCommandName(), false);
