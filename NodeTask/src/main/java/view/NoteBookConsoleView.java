@@ -25,6 +25,7 @@ public class NoteBookConsoleView {
         for (Note n : list) {
             System.out.println(n.toString());
         }
+
     }
 
 }

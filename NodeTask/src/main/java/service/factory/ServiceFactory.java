@@ -1,7 +1,7 @@
-package services.factory;
+package service.factory;
 
 
-import services.factory.impl.NoteBookServiceImpl;
+import service.factory.impl.NoteBookServiceImpl;
 
 public class ServiceFactory {
     private static ServiceFactory factory = new ServiceFactory();

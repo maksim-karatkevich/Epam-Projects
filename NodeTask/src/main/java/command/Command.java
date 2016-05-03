@@ -4,5 +4,5 @@ import bean.Request;
 import bean.Response;
 
 public interface Command {
-    Response execute(Request request) throws Exception;
+    Response execute(Request request);
 }

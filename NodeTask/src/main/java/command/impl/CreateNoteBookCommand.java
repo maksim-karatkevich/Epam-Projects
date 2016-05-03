@@ -4,8 +4,8 @@ import bean.Request;
 import bean.Response;
 import command.Command;
 import model.NoteBookProvider;
-import services.factory.impl.NoteBookServiceImpl;
-import services.factory.ServiceFactory;
+import service.factory.impl.NoteBookServiceImpl;
+import service.factory.ServiceFactory;
 
 /**
  * Создать блокнот
