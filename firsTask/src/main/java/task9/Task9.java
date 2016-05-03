@@ -6,48 +6,42 @@ package task9;
  * включив второй массив между k-м и (k+1) - м элементами первого.
  */
 public class Task9 {
-    int[] mas;
-    int[] mas2;
 
-    public Task9(int[] mas, int[] mas2) {
-        this.mas = mas;
-        this.mas2 = mas2;
-    }
 
-    public int[] copyArrays(int k) {
-        int numOfElements = mas.length + mas2.length;
+    public static int[] copyArrays(int k, int[] a, int[] b) {
+        int numOfElements = a.length + b.length;
         int i = 0;
         int temp = 0;
         int[] result = new int[numOfElements];
         for (i = 0; i < k; i++) {
-            result[i] = mas[i];
+            result[i] = a[i];
         }
         temp = i;
-        copyMiddlePart(result, i, temp);
+        copyMiddlePart(result, i, temp, a, b);
 
 
         return result;
     }
 
-    private void copyMiddlePart(int[] result, int temp, int i) {
-        for (int j = 0; j < mas2.length; j++) {
-            result[i] = mas2[j];
+    private static void copyMiddlePart(int[] result, int temp, int i, int[] a, int[] b) {
+        for (int j = 0; j < b.length; j++) {
+            result[i] = b[j];
             i++;
         }
-        copyLastPart(result, i, temp);
+        copyLastPart(result, i, temp, a);
     }
 
 
-    private void copyLastPart(int[] result, int temp, int i) {
+    private static void copyLastPart(int[] result, int temp, int i, int[] a) {
         for (int j = temp; j < result.length; j++) {
-            result[j] = mas[i];
+            result[j] = a[i];
             i++;
         }
     }
 
-    public void printRes(int k){
-        int[] res = copyArrays(k);
-        for (int i : res){
+    public static void printRes(int k, int[] a, int[] b) {
+        int[] res = copyArrays(k, a, b);
+        for (int i : res) {
             System.out.print(i + " ");
         }
     }
