@@ -3,6 +3,7 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
+import controller.Controller;
 import model.Note;
 import service.factory.exception.ServiceException;
 import service.factory.impl.NoteBookServiceImpl;
@@ -31,6 +32,7 @@ public class FindNoteOnDateCommand implements Command {
 
             }
         } catch (ServiceException e) {
+            Controller.getLogger().error(e);
             response.setStatusMessage(request.getCommandName(), false);
 
         }

@@ -1,6 +1,7 @@
 package dao.impl;
 
 
+import controller.Controller;
 import dao.FileDAO;
 import dao.exception.DAOException;
 import model.NoteBook;
@@ -15,8 +16,10 @@ public class FileDAOImpl implements FileDAO {
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(NoteBookProvider.getInstance().getNoteBook());
         } catch (FileNotFoundException e) {
+            Controller.getLogger().error(e);
             throw new DAOException("File not found exception", e);
         } catch (IOException e) {
+            Controller.getLogger().error(e);
             throw new DAOException("IOException", e);
         }
 
@@ -28,10 +31,13 @@ public class FileDAOImpl implements FileDAO {
             ObjectInputStream in = new ObjectInputStream(fileIn);
             noteBook = (NoteBook) in.readObject();
         } catch (ClassNotFoundException e) {
+            Controller.getLogger().error(e);
             throw new DAOException("Class not found exception", e);
         } catch (FileNotFoundException e) {
+            Controller.getLogger().error(e);
             throw new DAOException("File not found exception", e);
         } catch (IOException e) {
+            Controller.getLogger().error(e);
             throw new DAOException("IOException", e);
         }
         return noteBook;

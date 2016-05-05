@@ -3,24 +3,38 @@ package controller;
 import bean.Request;
 import bean.Response;
 import command.Command;
-import command.exception.CommandException;
 import controller.exception.CommandHelperException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 
 public class Controller {
     private final CommandHelper helper = new CommandHelper();
+    private static final Logger LOGGER = LogManager.getRootLogger();
 
-    public Controller(){}
+
+    public Controller() {
+    }
 
     public Response doAction(Request request) {
         try {
             String commandName = request.getCommandName();
             Command command = helper.getCommand(commandName);
-            return command.execute(request);
-        } catch (CommandHelperException ex){
+            Response response = command.execute(request);
+            LOGGER.info(response.getStatusMessage());
+            return response;
+        } catch (CommandHelperException ex) {
             Response response = new Response();
             response.setStatusMessage(request.getCommandName() + "not exists", false);
+            LOGGER.info(response.getStatusMessage());
+            LOGGER.error(ex);
             return response;
         }
+    }
+
+    public static Logger getLogger(){
+        return LOGGER;
     }
 
 }

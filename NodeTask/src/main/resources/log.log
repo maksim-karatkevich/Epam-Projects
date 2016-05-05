@@ -1,0 +1,26 @@
+12:53:18.641 [main] INFO   controller.Controller - CREATE_NOTE_BOOK_COMMAND completed successfully
+12:53:18.644 [main] INFO   controller.Controller - ADD_NOTE_COMMAND completed successfully
+12:53:18.644 [main] INFO   controller.Controller - ADD_NOTE_COMMAND completed successfully
+12:53:18.645 [main] INFO   controller.Controller - FIND_NgOTE_ON_CONTENT_COMMANDnot exists fail
+12:53:18.646 [main] ERROR  controller.Controller - controller.exception.CommandHelperException: FIND_NgOTE_ON_CONTENT_COMMAND not exists
+12:53:18.651 [main] ERROR  service.factory.impl.NoteBookServiceImpl - java.text.ParseException: Unparseable date: "2016-gf04-28"
+12:53:18.651 [main] ERROR  command.impl.FindNoteOnDateCommand - service.factory.exception.ServiceException: 2016-gf04-28 incorrect format
+12:53:18.651 [main] INFO   controller.Controller - FIND_NOTE_ON_DATE_COMMAND fail
+12:53:18.685 [main] INFO   controller.Controller - SAVE_NOTE_BOOK_IN_FILE_COMMAND completed successfully
+12:53:18.685 [main] ERROR  dao.impl.FileDAOImpl - java.io.FileNotFoundException: /Users/maksim_kevich/Desktop/ideaProjects/NodeTask/src/main/resources/tmp.sedr (No such file or directory)
+12:53:18.686 [main] ERROR  service.factory.impl.NoteBookServiceImpl - dao.exception.DAOException: File not found exception
+12:53:18.686 [main] ERROR  command.impl.LoadNoteBookOnFile - service.factory.exception.ServiceException: Load note book
+12:53:18.686 [main] INFO   controller.Controller - LOAD_NOTE_BOOK_ON_FILE_COMMAND fail
+13:30:50.419 [main] INFO   - CREATE_NOTE_BOOK_COMMAND completed successfully
+13:30:50.423 [main] INFO   - ADD_NOTE_COMMAND completed successfully
+13:30:50.424 [main] INFO   - ADD_NOTE_COMMAND completed successfully
+13:30:50.424 [main] INFO   - FIND_NgOTE_ON_CONTENT_COMMANDnot exists fail
+13:30:50.425 [main] ERROR  - controller.exception.CommandHelperException: FIND_NgOTE_ON_CONTENT_COMMAND not exists
+13:30:50.429 [main] ERROR  - java.text.ParseException: Unparseable date: "2016-gf04-28"
+13:30:50.429 [main] ERROR  - service.factory.exception.ServiceException: 2016-gf04-28 incorrect format
+13:30:50.429 [main] INFO   - FIND_NOTE_ON_DATE_COMMAND fail
+13:30:50.483 [main] INFO   - SAVE_NOTE_BOOK_IN_FILE_COMMAND completed successfully
+13:30:50.483 [main] ERROR  - java.io.FileNotFoundException: /Users/maksim_kevich/Desktop/ideaProjects/NodeTask/src/main/resources/tmp.sedr (No such file or directory)
+13:30:50.483 [main] ERROR  - dao.exception.DAOException: File not found exception
+13:30:50.483 [main] ERROR  - service.factory.exception.ServiceException: Load note book
+13:30:50.483 [main] INFO   - LOAD_NOTE_BOOK_ON_FILE_COMMAND fail

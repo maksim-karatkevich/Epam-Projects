@@ -15,14 +15,12 @@ import java.util.logging.Logger;
 public class AddNoteCommand implements Command {
     private Response response;
     private NoteBookServiceImpl service;
-    private static final Logger log = LogManager.getLogManager().getLogger(String.valueOf(AddNoteCommand.class));
     public Response execute(Request request) {
         service = ServiceFactory.getInstance().getNoteBookService();
         response = new Response();
         String noteText = request.getArg();
         service.addNote(noteText);
         response.setStatusMessage(request.getCommandName(), true);
-        log.info(response.getStatusMessage());
         return response;
     }
 }

@@ -1,6 +1,3 @@
-package test.commandTest;
-
-
 import bean.Request;
 import controller.Controller;
 import dao.DAOFactory;

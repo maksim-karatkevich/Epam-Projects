@@ -1,6 +1,7 @@
 package service.factory.impl;
 
 
+import controller.Controller;
 import dao.DAOFactory;
 import dao.exception.DAOException;
 import dao.impl.FileDAOImpl;
@@ -58,7 +59,9 @@ public class NoteBookServiceImpl implements NoteBookService {
             }
 
         } catch (ParseException ex) {
+            Controller.getLogger().error(ex);
             throw new ServiceException(date + " incorrect format");
+
         }
 
         return list;
@@ -71,6 +74,7 @@ public class NoteBookServiceImpl implements NoteBookService {
             FileDAOImpl fileDAOImpl = DAOFactory.getInstance().getFileDAOImpl();
             noteBook = fileDAOImpl.load(path, noteBook);
         } catch (DAOException ex) {
+            Controller.getLogger().error(ex);
             throw new ServiceException("Load note book", ex);
         }
         return noteBook;
@@ -91,6 +95,7 @@ public class NoteBookServiceImpl implements NoteBookService {
             FileDAOImpl fileDAOImpl = DAOFactory.getInstance().getFileDAOImpl();
             fileDAOImpl.save(path);
         } catch (DAOException ex) {
+            Controller.getLogger().error(ex);
             throw new ServiceException("File not found", ex);
         }
     }

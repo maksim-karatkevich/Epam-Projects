@@ -3,6 +3,7 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
+import controller.Controller;
 import model.NoteBookProvider;
 import service.factory.exception.ServiceException;
 import service.factory.impl.NoteBookServiceImpl;
@@ -26,6 +27,7 @@ public class LoadNoteBookOnFile implements Command {
             NoteBookProvider.getInstance().setInstance(service.loadNoteBook(path));
             response.setStatusMessage(request.getCommandName(), true);
         } catch (ServiceException ex) {
+            Controller.getLogger().error(ex);
             response.setStatusMessage(request.getCommandName(), false);
         }
         return response;

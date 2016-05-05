@@ -23,7 +23,7 @@ public class Main {
         request.setArg("Second");
         controller.doAction(request);
 
-        request.setCommandName("FIND_NOTE_ON_CONTENT_COMMAND");
+        request.setCommandName("FIND_NgOTE_ON_CONTENT_COMMAND");
         request.setArg("Second");
         controller.doAction(request);
 
@@ -40,10 +40,9 @@ public class Main {
         request.setArg("/Users/maksim_kevich/Desktop/ideaProjects/NodeTask/src/main/resources/tmp.sedr");
         controller.doAction(request);
 
-        request.setCommandName("SHOW_NOTE_IN_NOTE_BOOK_COMMAND");
-        controller.doAction(request);
+//        request.setCommandName("SHOW_NOTE_IN_NOTE_BOOK_COMMAND");
+//        controller.doAction(request);
 
-        NoteBookConsoleView.print(NoteBookProvider.getInstance().getNoteBook());
 
 
     }

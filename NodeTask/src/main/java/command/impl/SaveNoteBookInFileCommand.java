@@ -3,6 +3,7 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
+import controller.Controller;
 import service.factory.exception.ServiceException;
 import service.factory.impl.NoteBookServiceImpl;
 import service.factory.ServiceFactory;
@@ -24,6 +25,7 @@ public class SaveNoteBookInFileCommand implements Command {
             service.saveNoteBookOnFile(path);
             response.setStatusMessage(request.getCommandName(), true);
         } catch (ServiceException ex) {
+            Controller.getLogger().error(ex);
             response.setStatusMessage(request.getCommandName(), false);
         }
 
