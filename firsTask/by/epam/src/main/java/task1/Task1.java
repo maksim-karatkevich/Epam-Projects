@@ -8,7 +8,7 @@ package task1;
  * равна сумме двух его последних цифр.wqdqwdqwd
  */
 public class Task1 {
-    
+    //c
     public static String replaceDot(String number) throws Exception {
         if (number.contains(".")) {
             String temp = number.replace('.', ' ').replaceAll(" ", "");
