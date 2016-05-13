@@ -1,0 +1,2 @@
+17:06:11.562 [main] ERROR  - java.text.ParseException: Unparseable date: "2016-gf04-28"
+17:06:11.614 [main] ERROR  - dao.exception.DAOException: File not found exception
