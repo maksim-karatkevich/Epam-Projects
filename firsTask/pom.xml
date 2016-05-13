@@ -6,5 +6,9 @@
 
     <groupId>epam.com.tasks</groupId>
     <artifactId>epam.com.tasks</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../TestingGit</module>
+    </modules>
 </project>
