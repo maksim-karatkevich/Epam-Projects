@@ -1,0 +1,17 @@
+<lib:Library xmlns:lib="http://www.training.by/Library">
+  <lib:Books>
+    <!--Zero or more repetitions:-->
+    <lib:Book>
+      <lib:Title>Revival</lib:Title>
+      <lib:Author>Stephen King</lib:Author>
+      <lib:Genre>Horror</lib:Genre>
+      <lib:Language>English</lib:Language>
+    </lib:Book>
+    <lib:Book>
+      <lib:Title>Паттерны проектриования</lib:Title>
+      <lib:Author>К.Серра</lib:Author>
+      <lib:Genre>Education</lib:Genre>
+      <lib:Language>Russian</lib:Language>
+    </lib:Book>
+  </lib:Books>
+</lib:Library>

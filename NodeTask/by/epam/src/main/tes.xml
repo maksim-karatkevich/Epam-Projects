@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Books>
+    <!--Zero or more repetitions:-->
+    <Book>
+        <Title>Revival</Title>
+        <Author>Stephen King</Author>
+        <Genre>Horror</Genre>
+        <Language>English</Language>
+    </Book>
+    <Book>
+        <Title>Паттерны проектриования</Title>
+        <Author>К.Серра</Author>
+        <Genre>Education</Genre>
+        <Language>Russian</Language>
+    </Book>
+</Books>
