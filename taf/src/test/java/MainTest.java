@@ -13,6 +13,7 @@ public class MainTest {
     public void setUp() {
         steps = new Steps();
         steps.initBrowser();
+
     }
 
     @AfterMethod
