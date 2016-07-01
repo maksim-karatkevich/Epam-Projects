@@ -3,8 +3,8 @@ package command.impl;
 import bean.Request;
 import bean.Response;
 import command.Command;
-import service.impl.NoteBookServiceImpl;
 import service.factory.ServiceFactory;
+import service.impl.NoteBookServiceImpl;
 
 /**
  * Добавить запись в Блокнот
@@ -12,6 +12,7 @@ import service.factory.ServiceFactory;
 public class AddNoteCommand implements Command {
     private Response response;
     private NoteBookServiceImpl service;
+
     public Response execute(Request request) {
         service = ServiceFactory.getInstance().getNoteBookService();
         response = new Response();

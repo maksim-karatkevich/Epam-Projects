@@ -10,6 +10,19 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
     private WebDriver driver;
 
+    /**
+     * @param driver with factory method
+     */
+    public Steps(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    /**
+     * without factory method
+     */
+    public Steps() {
+    }
+
     public void initBrowser() {
         this.driver = SingleDriver.getInstance();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -27,7 +40,7 @@ public class Steps {
     }
 
     public void closeDriver() {
-        driver.close();
+        SingleDriver.closeDriver();
     }
 
 

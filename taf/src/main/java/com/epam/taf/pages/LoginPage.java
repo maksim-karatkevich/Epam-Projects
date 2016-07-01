@@ -15,13 +15,15 @@ public class LoginPage {
     private WebElement passwordField;
     @FindBy(id = "signIn")
     private WebElement signInButton;
-    @FindBy(xpath = "//[@id=':j']/span")
+    @FindBy(xpath = "//div[@class='gb_ue gb_tf']/div[1]/div[2]/div[4]//a")
     private WebElement userNameSpan;
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
+
 
     public void logIn(String loginName, String password) {
         openPage();
@@ -32,7 +34,9 @@ public class LoginPage {
     }
 
     public String getUserName() {
-        return userNameSpan.getText();
+//        StringBuilder builder = new StringBuilder(userNameSpan.getAttribute("title"));
+//        String regax = "sd";
+        return userNameSpan.getAttribute("title");
     }
 
     public void openPage() {
