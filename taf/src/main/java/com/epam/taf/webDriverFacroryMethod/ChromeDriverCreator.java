@@ -6,26 +6,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 
-public class ChromeDriverCreator extends WebDriverCreator {
-    protected static WebDriver driver;
+public class ChromeDriverCreator {
+    private static WebDriver driver;
 
-    public WebDriver factoryMethod() {
-        return getInstance();
+    private ChromeDriverCreator() {
     }
 
-    protected WebDriver getInstance() {
+
+    public static WebDriver getInstance() {
         if (driver == null) {
             driver = new ChromeDriver();
         }
         return driver;
     }
 
-    public void closeDriver() {
+    public static void closeDriver() {
         driver.close();
         driver = null;
     }
 
-    public void initBrowser() {
+    public static void initBrowser() {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
     }

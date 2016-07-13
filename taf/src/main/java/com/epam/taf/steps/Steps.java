@@ -3,9 +3,10 @@ package com.epam.taf.steps;
 
 import com.epam.taf.SingleDriver;
 import com.epam.taf.pages.LoginPage;
+import com.epam.taf.pages.MailPage;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
+
 
 public class Steps {
     private WebDriver driver;
@@ -13,20 +14,9 @@ public class Steps {
     /**
      * @param driver with factory method
      */
+
     public Steps(WebDriver driver) {
         this.driver = driver;
-    }
-
-    /**
-     * without factory method
-     */
-    public Steps() {
-    }
-
-    public void initBrowser() {
-        this.driver = SingleDriver.getInstance();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
     }
 
     public void logIn(String user, String password) {
@@ -44,4 +34,10 @@ public class Steps {
     }
 
 
+    public void logOut(String user, String pass) {
+        logIn(user, pass);
+        MailPage mailPage = new MailPage(driver);
+        mailPage.logOutAfterLogIn();
+
+    }
 }

@@ -15,7 +15,7 @@ public class LoginPage {
     private WebElement passwordField;
     @FindBy(id = "signIn")
     private WebElement signInButton;
-    @FindBy(xpath = "//div[@class='gb_ue gb_tf']/div[1]/div[2]/div[4]//a")
+    @FindBy(xpath = "//div[@class='gb_pc gb_cb gb_tf gb_R']/a[1]")
     private WebElement userNameSpan;
 
 
@@ -34,12 +34,10 @@ public class LoginPage {
     }
 
     public String getUserName() {
-//        StringBuilder builder = new StringBuilder(userNameSpan.getAttribute("title"));
-//        String regax = "sd";
         return userNameSpan.getAttribute("title");
     }
 
     public void openPage() {
-        driver.navigate().to("https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1");
+        driver.navigate().to("https://gmail.com");
     }
 }

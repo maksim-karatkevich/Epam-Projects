@@ -1,35 +1,43 @@
 import com.epam.taf.steps.Steps;
 import com.epam.taf.webDriverFacroryMethod.FirefoxDriverCreator;
-import com.epam.taf.webDriverFacroryMethod.WebDriverCreator;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TestWithFactory {
-    WebDriverCreator creator;
+
+    private final static String USER = "mx.kevich@gmail.com";
+    private final static String PASS = "Barcelona24";
     private WebDriver driver;
     private Steps steps;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
-        creator = new FirefoxDriverCreator();
-        driver = creator.factoryMethod();
-        creator.initBrowser();
 
+        driver = FirefoxDriverCreator.getInstance();
+        FirefoxDriverCreator.initBrowser();
+        steps = new Steps(driver);
+        steps.logOut(USER, PASS);
     }
 
-    @AfterMethod
-    public void ternDown() {
-        creator.closeDriver();
-        creator = null;
+    @AfterClass
+    public void tearDown() {
+        FirefoxDriverCreator.closeDriver();
         driver = null;
     }
 
-    @Test
-    public void userCanLogin() {
-        steps = new Steps(driver);
-        steps.logIn("LOGIN", "PASSWORD");
+    @Test(priority = 1)
+    public void userCanLogin() throws InterruptedException {
+
+        Assert.assertTrue(steps.getLoggedInUserName().contains(USER));
+
+    }
+
+
+    @Test(dependsOnMethods = "userCanLogin")
+    public void userCanLogOut() {
 
     }
 }

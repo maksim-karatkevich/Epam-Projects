@@ -6,29 +6,34 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 
-public class FirefoxDriverCreator extends WebDriverCreator {
-    protected static WebDriver driver;
+public class FirefoxDriverCreator {
+    private static WebDriver driver; /// ????
 
-    public WebDriver factoryMethod() {
-        return getInstance();
+    private FirefoxDriverCreator() {
     }
 
-    public void closeDriver() {
+    public static WebDriver getInstance() {
+        if (driver == null) {
+            return driver = new FirefoxDriver();
+        } else return driver;
+        //   return driver;
+    }
+
+    public static void closeDriver() {
         driver.close();
         driver = null;
     }
 
-    public void initBrowser() {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    public static void initBrowser() {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); /// ??????
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
     }
 
-    protected WebDriver getInstance() {
-        if (driver == null) {
-            driver = new FirefoxDriver();
-        }
-        return driver;
-    }
+    public WebDriver factoryMethod() {
+        return getInstance();
+    } //// ?????
+
+
 
 
 }

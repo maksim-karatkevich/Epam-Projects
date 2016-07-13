@@ -2,22 +2,17 @@
  * Created by maksim_kevich on 6/27/16.
  */
 public class Test {
-    public static void main(String[] args) {
-//        Set<Book> books = new TreeSet<>();
-//        books.add(new Book("b", 133));
-//        books.add(new Book("y", 1));
-//        books.add(new Book("a", 33));
-//        books.add(new Book("d", 0));
-//
-//        for (Book t : books) {
-//            System.out.println(t.getTitle() + " " + t.getYear());
-//        }
-        String email = "+375-29-1430899";
-        String regax = "[^aA-bB]";
-        System.out.println(email.matches("\\+[0-9]{3}\\-[0-9]{2}\\-[0-9]{7}"));
-//        email.matches("[^a-zA-Z0-9_.]{1,}[@]{1}[a-z]{2,4}[.]{1}[a-z]{2,4}");
-
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Book book1 = new Book("Metro", 2015);
+        book1.setInNum(1, "Coned!");
+        Book book2 = (Book) book1.clone();
+        System.out.println(book2.getTitle() + " " +
+                book2.getYear());
+        System.out.println(book2.inNum.t + " " +
+                book2.inNum.num);
+        System.out.println(book1 == book2);
     }
+
 }
 
 /**
