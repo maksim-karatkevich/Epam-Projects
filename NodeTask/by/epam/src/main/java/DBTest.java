@@ -16,9 +16,8 @@ public class DBTest {
             System.out.println("Yes");
             Statement st = con.createStatement();
             // Добавить запись
-            // Integer rs = st.executeUpdate("INSERT INTO `Nodes` (`NoteContent`) VALUES ('Second note')");
-
-            // System.out.println(resultSet.getString("noteContent"));
+            Integer rs = st.executeUpdate("INSERT INTO `Nodes` (`NoteContent`) VALUES ('fourth')");
+//
             // прочитать все колонки
             ResultSet set = st.executeQuery("SELECT * FROM Nodes");
             while (set.next()) {

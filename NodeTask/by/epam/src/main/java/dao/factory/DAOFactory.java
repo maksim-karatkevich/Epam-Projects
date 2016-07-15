@@ -9,11 +9,16 @@ public class DAOFactory {
 
     private final FileDAOImpl fileDAOImpl = new FileDAOImpl();
 
-    private DAOFactory(){}
+    private DAOFactory() {
+    }
 
-    public static DAOFactory getInstance() { return factory; }
+    public static DAOFactory getInstance() {
+        return factory;
+    }
 
-    public FileDAOImpl getFileDAOImpl(){
+    public FileDAOImpl getFileDAOImpl() {
         return fileDAOImpl;
     }
+
+
 }
